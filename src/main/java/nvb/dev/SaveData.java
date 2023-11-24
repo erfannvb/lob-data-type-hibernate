@@ -15,12 +15,11 @@ public class SaveData {
         session.beginTransaction();
 
         Data data = new Data();
-        data.setName("Image File");
-
-        session.doWork(connection -> data.setFile(BlobProxy.generateProxy(getImage())));
+        data.setName("Image File 2");
+//        session.doWork(connection -> data.setFile(BlobProxy.generateProxy(getImage())));
+        data.setFile(BlobProxy.generateProxy(getImage()));
 
         session.persist(data);
-
         session.getTransaction().commit();
 
     }
